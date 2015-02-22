@@ -5,7 +5,7 @@ var app = express();
 
 app.use(express.static(__dirname + '/public'));
 
-app.use(bodyParser.json());
+app.use(bodyParser.json({type: '*/*'}));
 
 app.use(function(req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
