@@ -2,6 +2,8 @@ var express = require('express');
 var Contact = require('./models/contact').Contact;
 var app = express();
 
+app.use(express.static(__dirname + '/public'));
+
 app.use(function(req, res, next) {
 	res.setHeader('Access-Control-Allow-Origin', '*');
 	next();
