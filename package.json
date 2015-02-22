@@ -1,0 +1,19 @@
+{
+  "name": "contact-manager-api",
+  "version": "0.0.1",
+  "description": "API to use in contact manager application",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dmytroyarmak/contact-manager-api.git"
+  },
+  "author": "Dmytro Yarmak",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmytroyarmak/contact-manager-api/issues"
+  },
+  "homepage": "https://github.com/dmytroyarmak/contact-manager-api"
+}
