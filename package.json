@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/dmytroyarmak/contact-manager-api/issues"
   },
-  "homepage": "https://github.com/dmytroyarmak/contact-manager-api"
+  "homepage": "https://github.com/dmytroyarmak/contact-manager-api",
+  "dependencies": {
+    "express": "^4.11.2",
+    "underscore": "^1.8.2"
+  }
 }
