@@ -45,6 +45,13 @@ var contactStorage = {
 	}
 };
 
+var currentId = 6;
+
+function getNextId () {
+	currentId += 1;
+	return currentId;
+}
+
 function Contact (attributes) {
 	_.extend(this, attributes);
 }
@@ -71,13 +78,10 @@ Contact.updateContact = function (id, data) {
 }
 
 Contact.createContact = function (data) {
-	var id = data.id;
-	if (!contactStorage[id]) {
-		contactStorage[id] = data;
-		return Contact.getContactById(id);
-	} else {
-		throw new Error('There is already contact with id: ' + id);
-	}
+	var id = getNextId();
+	data.id = id;
+	contactStorage[id] = data;
+	return Contact.getContactById(id);
 }
 
 Contact.deleteContact = function (id) {
