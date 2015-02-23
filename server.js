@@ -23,7 +23,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json({type: '*/*'}));
 
 app.use(function(req, res, next) {
-	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
 	res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD');
 	res.setHeader('Access-Control-Allow-Credentials', true);
 	next();
