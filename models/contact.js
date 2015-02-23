@@ -74,7 +74,7 @@ Contact.getContactById = function getContactById (contactStorage, id) {
 Contact.updateContact = function (contactStorage, id, data) {
 	if (contactStorage.contacts[id]) {
 		contactStorage.contacts[id] = data;
-		return Contact.getContactById(id);
+		return Contact.getContactById(contactStorage, id);
 	} else {
 		throw new Error('There is no contact with id: ' + id);
 	}
@@ -84,7 +84,7 @@ Contact.createContact = function (contactStorage, data) {
 	var id = getNextId(contactStorage);
 	data.id = id;
 	contactStorage.contacts[id] = data;
-	return Contact.getContactById(id);
+	return Contact.getContactById(contactStorage, id);
 }
 
 Contact.deleteContact = function (contactStorage, id) {
