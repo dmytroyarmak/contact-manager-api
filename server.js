@@ -23,35 +23,37 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json({type: '*/*'}));
 
 app.use(function(req, res, next) {
-	res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
-	res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD');
-	res.setHeader('Access-Control-Allow-Credentials', true);
-	next();
+  res.setHeader('Access-Control-Allow-Origin', req.headers.origin || '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, HEAD');
+  res.setHeader('Access-Control-Allow-Credentials', true);
+  res.setHeader('Access-Control-Allow-Headers', req.headers['access-control-request-headers'] || '');
+
+  next();
 });
 
 app.get('/contacts', function (req, res) {
-	var contacts = Contact.getAllContacts(req.session.contactStorage);
-  	res.send(contacts);
+  var contacts = Contact.getAllContacts(req.session.contactStorage);
+    res.send(contacts);
 });
 
 app.post('/contacts', function (req, res) {
-	var	contact = Contact.createContact(req.session.contactStorage, req.body);
-  	res.send(contact);
+  var contact = Contact.createContact(req.session.contactStorage, req.body);
+    res.send(contact);
 });
 
 app.get('/contacts/:id', function (req, res) {
-	var	contact = Contact.getContactById(req.session.contactStorage, req.params.id);
-  	res.send(contact);
+  var contact = Contact.getContactById(req.session.contactStorage, req.params.id);
+    res.send(contact);
 });
 
 app.put('/contacts/:id', function (req, res) {
-	var	contact = Contact.updateContact(req.session.contactStorage, req.params.id, req.body);
-  	res.send(contact);
+  var contact = Contact.updateContact(req.session.contactStorage, req.params.id, req.body);
+    res.send(contact);
 });
 
 app.delete('/contacts/:id', function (req, res) {
-	Contact.deleteContact(req.session.contactStorage, req.params.id);
-  	res.send({});
+  Contact.deleteContact(req.session.contactStorage, req.params.id);
+    res.send({});
 });
 
 var server = app.listen(process.env.PORT || 3000, function () {
